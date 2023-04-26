@@ -7,10 +7,16 @@ import { CoreModule } from './core/core.module';
 import { DataModule } from './data/data.module';
 import { SharedModule } from './shared/shared.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { SkeletonComponent } from './layout/skeleton/skeleton.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { NavigationComponent } from './layout/navigation/navigation.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SkeletonComponent,
+    FooterComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

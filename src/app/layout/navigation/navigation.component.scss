@@ -1,0 +1,16 @@
+.dsc-navigation {
+    height: calc(80px - 1rem);
+    display: flex;
+    //los dos de abajo solo funcionan con flex
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: black;
+}
+
+.pito {
+    //esto usarlo mejor con display block,
+    //o inline-block, con inline puede hacer
+    //cosas raras, no se como sera con flex
+    margin-left: 1rem;
+}
