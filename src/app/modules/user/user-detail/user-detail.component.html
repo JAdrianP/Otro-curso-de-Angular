@@ -1,1 +1,16 @@
-<h1>Detalle de usuario</h1>
+
+<div class="row ">
+    <div class="col-12 ">
+        <h1 class="my-5">DETALLES DE USUARIO</h1>
+    </div>
+    <div class="col-12 col-md-6 col-xl-3 text-center">
+        <img class="dsc-user-img" src="{{currentUser.avatar}}" alt="">
+    </div>
+    <div class="col-12 col-md-6 col-xl-9">
+        <h2 class="text-primary border-bottom pb-3">Detalle de {{currentUser.name}}</h2>
+        <h3 class="text-secondary">Edad: {{currentUser.age}}</h3>
+        <h3 class="text-secondary">Puesto: {{currentUser.work ? currentUser.work : '-------'}}</h3>
+        <p class="text-secondary">{{currentUser.description}}</p>
+    </div>
+</div>
+

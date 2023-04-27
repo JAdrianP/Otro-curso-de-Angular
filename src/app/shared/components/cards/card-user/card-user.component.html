@@ -1,5 +1,7 @@
 <!-- si data existe lo muestra, sino no -->
-<div class="dsc-card" *ngIf="data">
+<!-- ojo que para usar router link hay que importar y exportar Router module en el modulo al que
+pertenezca este Componente -->
+<div class="dsc-card" *ngIf="data" routerLink="/panel/user/{{data.id}}">
     <div class="dsc-card_img">
         <img src="{{data.avatar}}" alt="">
     </div>
@@ -7,6 +9,10 @@
         <h2>{{data.name}}</h2>
         <h4>Edad: {{data.age}}</h4>
         <p>{{data.description}}</p>
-        <p *ngIf="data.work">{{data.work ? data.work: 'sin trabajo'}}</p>
+       <!-- esto no se debe hacer en el html -->
+        <!-- <p>{{data.work ? data.work: 'sin trabajo'}}</p> -->
+
+        <!-- esto si se puede hacer pero mejor hacerlo con servicios -->
+        <p *ngIf="data.work">{{data.work}}</p>
     </div>
 </div>

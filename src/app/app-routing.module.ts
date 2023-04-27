@@ -3,22 +3,37 @@ import { RouterModule, Routes } from '@angular/router';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 
 const routes: Routes = [
-{
-  path:'',
-  component: SkeletonComponent,
-  children:[
-    {
+  {
     path: '',
-    loadChildren: () =>
-      import('./modules/user/user.module').then((m) => m.UserModule)
-    }
-  ]
-}
+    redirectTo: '/panel/user',
+    pathMatch: 'full'
+  },
+  {
+    path: 'panel',
+    component: SkeletonComponent,
+    children: [
+      {
+        path: 'user',
+        loadChildren: () =>
+          import('./modules/user/user.module').then((m) => m.UserModule)
+      },
+      {
+        path: '**',
+        redirectTo: '/panel/user',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '/panel/user',
+    pathMatch: 'full'
+  }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash:true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -10,7 +10,7 @@ const routes: Routes = [
 
 },
 {
-    path:'detail',
+    path:':id',
     component:UserDetailComponent
 }
 

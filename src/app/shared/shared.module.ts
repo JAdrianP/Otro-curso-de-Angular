@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import * as fromComponents from './components';
 import { CardUserComponent } from './components/cards/card-user/card-user.component';
 import { CardVisaComponent } from './components/cards/card-visa/card-visa.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { CardVisaComponent } from './components/cards/card-visa/card-visa.compon
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   //exportamos todos para no tener que estar declarando esto en cada modulo
   exports:[
@@ -22,7 +24,8 @@ import { CardVisaComponent } from './components/cards/card-visa/card-visa.compon
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ...fromComponents.components
+    ...fromComponents.components,
+    RouterModule
   ]
 })
 export class SharedModule { }
