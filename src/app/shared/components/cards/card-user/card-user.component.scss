@@ -5,10 +5,12 @@
     display: flex;
     align-items: center;
     max-width: 350px;
-    height: 150px;
+    height: 200px;
     padding: 0.5rem;
     border-left: 4px solid blue;
     transition: 0.7s all ease-in-out;
+    margin: 1rem auto;
+
 }
 
 .dsc-card:hover{

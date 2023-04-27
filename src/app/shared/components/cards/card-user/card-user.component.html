@@ -7,5 +7,6 @@
         <h2>{{data.name}}</h2>
         <h4>Edad: {{data.age}}</h4>
         <p>{{data.description}}</p>
+        <p *ngIf="data.work">{{data.work ? data.work: 'sin trabajo'}}</p>
     </div>
 </div>
