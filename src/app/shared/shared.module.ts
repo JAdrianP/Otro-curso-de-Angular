@@ -3,20 +3,21 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import * as fromComponents from './components';
-import { CardUserComponent } from './components/cards/card-user/card-user.component';
-import { CardVisaComponent } from './components/cards/card-visa/card-visa.component';
 import { RouterModule } from '@angular/router';
+import { A11yModule } from '@angular/cdk/a11y';
+
 
 
 
 @NgModule({
-  declarations: [...fromComponents.components, CardUserComponent, CardVisaComponent],
+  declarations: [...fromComponents.components],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    A11yModule
   ],
   //exportamos todos para no tener que estar declarando esto en cada modulo
   exports:[
@@ -25,7 +26,8 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     HttpClientModule,
     ...fromComponents.components,
-    RouterModule
+    RouterModule,
+    A11yModule
   ]
 })
 export class SharedModule { }
