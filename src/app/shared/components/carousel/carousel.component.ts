@@ -18,9 +18,11 @@ export class CarouselComponent implements OnInit {
   public currentPosition = 0;
 
   constructor() {
-    this.finalHeight = this.isFullScreen ? '100vh' : `${this.height}px`
+   
   }
   ngOnInit(): void {
+
+    this.finalHeight = this.isFullScreen ? '100vh' : `${this.height}px`
 
     this.items.map((item, index) => {
       item.id = index;
