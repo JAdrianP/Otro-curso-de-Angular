@@ -1,0 +1,26 @@
+<div class="micarousel">
+
+    <div class="micarousel_btns">
+        <i class="fa fa-chevron-circle-left" (click)="prevItem()"></i>
+        <i class="fa fa-chevron-circle-right" (click)="nextItem()"></i>
+    </div>
+
+    <div class="micarousel_content" [ngStyle]="{'margin-left': marginPercentage +'%'}">
+        <ng-container *ngFor="let miitem of items">
+            <div class="micarousel_content-item"
+                [ngStyle]="{'background-image': 'url(' + miitem.imagen + ')'}">
+                <h2>{{miitem.titulo}}</h2>
+                <h3>{{miitem.descripcion}}</h3>
+                <p>{{miitem.comentario}}</p>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="micarousel_steps" >
+
+        <div class="micarousel_steps-step " *ngFor="let miitem of items" (click)="setPosition(miitem.id - 1)">
+
+        </div>
+    </div>
+
+</div>

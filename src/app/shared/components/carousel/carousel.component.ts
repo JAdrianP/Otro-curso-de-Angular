@@ -28,7 +28,6 @@ export class CarouselComponent implements OnInit {
       item.id = index;
       item.marginLeft = 0;
     })
-
   }
 
   setCurrentPosition(position: number) {

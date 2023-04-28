@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-
+    
     &::before {
         content: '';
         height: 100%;
@@ -35,7 +35,7 @@
             background-size: cover;
             background-position: center;
             transition: 1s all ease-in;
-
+            overflow: hidden;
             h1 {
                 color: white;
                 font-weight: 900;
@@ -68,7 +68,7 @@
             color: white;
             font-size: 45px;
             cursor: pointer;
-            justify-content: space-between;
+            //justify-content: space-between;
         }
     }
 

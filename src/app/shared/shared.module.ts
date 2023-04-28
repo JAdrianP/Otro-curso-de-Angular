@@ -5,12 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import * as fromComponents from './components';
 import { RouterModule } from '@angular/router';
 import { A11yModule } from '@angular/cdk/a11y';
+import { MicarouselComponent } from './components/micarousel/micarousel.component';
 
 
 
 
 @NgModule({
-  declarations: [...fromComponents.components],
+  declarations: [...fromComponents.components, MicarouselComponent],
   imports: [
     CommonModule,
     FormsModule,
