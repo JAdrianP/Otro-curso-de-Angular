@@ -1,4 +1,3 @@
-  
 <!-- <div class="row"> 
     <div class="col-12">
         <app-title-h1 type="danger" text="LISTA DE USUARIOS"></app-title-h1>
@@ -21,12 +20,28 @@
         </div>
     </div>
 </div>
-<div class="row"> 
+
+
+<!-- <ng-container *ngIf="users; else elseUsersLoader"> 
+    <div class="row">
+        <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-md-6
+            col-xl-3"></app-card-user>
+    </div>
+</ng-container>-->
+
+
+<div class="row">
     <div class="col-12">
         <app-title-h1 type="danger" text="LISTA DE USUARIOS"></app-title-h1>
     </div>
-        <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-md-6
-        col-xl-3"></app-card-user> 
+    <ng-container *ngIf="3 + 3 === 5; else elseUsersLoader"> 
+            <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-md-6 col-xl-3"></app-card-user>
+    </ng-container>
+    <!-- el ng template solo aparece en cas ode no cumplirse la condicion del container -->
+    <ng-template #elseUsersLoader>
+            <app-card-loader *ngFor="let item of[0,0,0,0,0,0,0]" class="col-12 col-md-6 col-xl-3" [bars]="4"></app-card-loader>
+    </ng-template>
 </div>
 
-
+<p>Custom Pipe: {{user.name | greeting: user.gender : user.role}}</p>
+<!-- <app-card-loader class="col-12 col-md-6 col-xl-3" [bars]="4" *ngFor="let item of[0,0,0,0,0,0,0]"></app-card-loader> + -->
