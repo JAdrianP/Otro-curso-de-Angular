@@ -131,6 +131,9 @@ $secondary: #655C5C;
                     background: #fff ;
                     color: $primary;
                 }
+                &:disabled{
+                    opacity: 0.5;
+                }
             }
 
         }
