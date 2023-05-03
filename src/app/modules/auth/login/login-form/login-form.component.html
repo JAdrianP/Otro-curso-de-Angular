@@ -5,7 +5,7 @@
         <div class="login-form-input">
             <label for="">Email:</label>
             <input type="email" placeholder="Email" formControlName="email" >
-            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="(loginForm.controls['email'].dirty || loginForm.controls['email'].touched) && loginForm.controls['email'].errors">
+            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="(loginForm.controls['email'].dirty || loginForm.controls['email'].touched) && loginForm.controls['email'].errors && loginSubmited">
                 <ng-container [ngSwitch]="loginForm.controls['email'].value">
                     <ng-container *ngSwitchCase="''">El email es requerido d</ng-container>
                     <ng-container *ngSwitchDefault="">El email es invalido s</ng-container>
@@ -15,7 +15,7 @@
         <div class="login-form-input">
             <label for="">Contraseña:</label>
             <input type="password" placeholder="Contraseña" name="" formControlName="password">
-            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="(loginForm.controls['password'].dirty || loginForm.controls['password'].touched) && loginForm.controls['password'].errors">
+            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="(loginForm.controls['password'].dirty || loginForm.controls['password'].touched) && loginForm.controls['password'].errors && loginSubmited">
                 <ng-container [ngSwitch]="loginForm.controls['password'].value">
                     <ng-container *ngSwitchCase="''">la contrasenya es requerida</ng-container>
                     <ng-container *ngSwitchDefault="">La contrasenya es invalida</ng-container>
@@ -25,7 +25,7 @@
         <small class="small">Olvide contraseña</small>
         <div class="login-form-buttons">
             <button class="login-form-buttons_signup">Registrarse</button>
-             <button class="login-form-buttons_signin" type="submit" [disabled]="!loginForm.valid">IniciarSesion</button>
+             <button class="login-form-buttons_signin" type="submit">IniciarSesion</button>
         </div>
     </form>
 </div>
