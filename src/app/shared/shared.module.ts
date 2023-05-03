@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { A11yModule } from '@angular/cdk/a11y';
 import { MicarouselComponent } from './components/micarousel/micarousel.component';
 import { CardLoaderComponent } from './components/loaders/card-loader/card-loader.component';
+import { ValidationsService } from './services/validations/validations.service';
 
 
 
@@ -21,7 +22,7 @@ import { CardLoaderComponent } from './components/loaders/card-loader/card-loade
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    A11yModule
+    A11yModule,
   ],
   //exportamos todos para no tener que estar declarando esto en cada modulo
   exports:[
@@ -32,7 +33,7 @@ import { CardLoaderComponent } from './components/loaders/card-loader/card-loade
     ...fromComponents.components,
     ...fromPipes.pipes,
     RouterModule,
-    A11yModule
+    A11yModule,
   ]
 })
 export class SharedModule { }

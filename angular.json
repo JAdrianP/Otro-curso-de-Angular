@@ -17,6 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                  "src/styles"
+              ]
+          },
             "outputPath": "dist/otro-curso",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -36,6 +41,7 @@
           },
           "configurations": {
             "production": {
+              
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

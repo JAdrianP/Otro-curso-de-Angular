@@ -1,25 +1,10 @@
 <div class="login-container">
         <div class="login-form">
             <img src="../../../../assets/images/Visa_Logo.png" alt="Logo" class="login-form-logo">
-            <div class="login-form-content">
+            <!-- el app-login-form puedo inyectarlo ahi porque he anyadido el selector [app-login-form] en el componente -->
+            <div class="login-form-content" app-login-form>
 
-                <h1>Bienvenido de nuevo</h1>
-                <p>gracias por volver a tu siotio favorito, por favor llebna el fomi</p>
-                <div class="login-form-input">
-                    <label for="">Email:</label>
-                    <input type="email" placeholder="Email" [(ngModel)]="loginForm.email.val">
-                    <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="!loginForm.email.isValid()">{{loginForm.email.error}}</small>
-                </div>
-                <div class="login-form-input">
-                    <label for="">Contraseña:</label>
-                    <input type="password" placeholder="Contraseña" name="" [(ngModel)]="loginForm.password.val">
-                    <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="!loginForm.password.isValid()">{{loginForm.password.error}}</small>
-                </div>
-                <small>Olvide contraseña</small>
-                <div class="login-form-buttons">
-                    <button class="login-form-buttons_signup">Registrarse</button>
-                    <button class="login-form-buttons_signin" [disabled]="!isValidForm()">Iniciar Sesion</button>
-                </div>
+                
             </div>
             <div class="login-form-footer">
                     <div class="login-form-footer_links">
