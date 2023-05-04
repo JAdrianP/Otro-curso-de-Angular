@@ -9,13 +9,17 @@ import { CONST_LOGIN_PAGE } from 'src/app/data/constants/pages/login/login.const
 })
 export class LoginFormComponent implements OnInit {
 
-  public loginForm: FormGroup;
+  public loginForm;
   public loginSubmited = false;
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
       email: ['me cago en diuuuu', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
-      password: ['', [Validators.required, Validators.maxLength(10)]]
+      password: ['', [Validators.required, Validators.maxLength(10)]],
+      person: this.formBuilder.group({
+        name: ['',[Validators.required, Validators.maxLength(35)]],
+        lastname: ['',[Validators.required, Validators.maxLength(35)]]
+      })
     });
   }
   ngOnInit(): void {

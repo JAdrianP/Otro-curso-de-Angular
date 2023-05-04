@@ -2,10 +2,37 @@
     <h1>Bienvenido de nuevo</h1>
     <p>gracias por volver a tu siotio favorito, por favor llebna el fomi</p>
     <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
+        <div formGroupName="person">
+
+            <div class="login-form-input">
+                <label for="">Nombre</label>
+                <input type="text" placeholder="Nombre" formControlName="name" >
+                <!-- en el ts debemos quitar el tipo FormGroup del formulario, ya que este cuenta conque .controls va a devolver
+                controles AbstractControl y en este caso tenemos dentro otro form group al que queremos acceder-->
+                <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="loginForm.controls['person'].controls['name'].errors && loginSubmited">
+                    <ng-container [ngSwitch]="loginForm.controls['person'].controls['name'].value">
+                        <ng-container *ngSwitchCase="''">El nombre es requerido d</ng-container>
+                        <ng-container *ngSwitchDefault="">El nombre es invalido s</ng-container>
+                    </ng-container>
+                </small>
+            </div>
+            <div class="login-form-input">
+                <label for="">Apellido</label>
+                <input type="text" placeholder="Apellido" formControlName="lastname" >
+                <!-- en el ts debemos quitar el tipo FormGroup del formulario, ya que este cuenta conque .controls va a devolver
+                controles AbstractControl y en este caso tenemos dentro otro form group al que queremos acceder-->
+                <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="loginForm.controls['person'].controls['lastname'].errors && loginSubmited">
+                    <ng-container [ngSwitch]="loginForm.controls['person'].controls['lastname'].value">
+                        <ng-container *ngSwitchCase="''">El apellido es requerido d</ng-container>
+                        <ng-container *ngSwitchDefault="">El APELLIDO es invalido s</ng-container>
+                    </ng-container>
+                </small>
+            </div>
+        </div>
         <div class="login-form-input">
             <label for="">Email:</label>
             <input type="email" placeholder="Email" formControlName="email" >
-            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="(loginForm.controls['email'].dirty || loginForm.controls['email'].touched) && loginForm.controls['email'].errors && loginSubmited">
+            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="loginForm.controls['email'].errors && loginSubmited">
                 <ng-container [ngSwitch]="loginForm.controls['email'].value">
                     <ng-container *ngSwitchCase="''">El email es requerido d</ng-container>
                     <ng-container *ngSwitchDefault="">El email es invalido s</ng-container>
@@ -15,7 +42,7 @@
         <div class="login-form-input">
             <label for="">Contraseña:</label>
             <input type="password" placeholder="Contraseña" name="" formControlName="password">
-            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="(loginForm.controls['password'].dirty || loginForm.controls['password'].touched) && loginForm.controls['password'].errors && loginSubmited">
+            <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="loginForm.controls['password'].errors && loginSubmited">
                 <ng-container [ngSwitch]="loginForm.controls['password'].value">
                     <ng-container *ngSwitchCase="''">la contrasenya es requerida</ng-container>
                     <ng-container *ngSwitchDefault="">La contrasenya es invalida</ng-container>
