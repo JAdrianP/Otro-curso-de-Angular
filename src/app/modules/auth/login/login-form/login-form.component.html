@@ -2,33 +2,6 @@
     <h1>Bienvenido de nuevo</h1>
     <p>gracias por volver a tu siotio favorito, por favor llebna el fomi</p>
     <form [formGroup]="loginForm" (ngSubmit)="authenticate()">
-        <div formGroupName="person">
-
-            <div class="login-form-input">
-                <label for="">Nombre</label>
-                <input type="text" placeholder="Nombre" formControlName="name" >
-                <!-- en el ts debemos quitar el tipo FormGroup del formulario, ya que este cuenta conque .controls va a devolver
-                controles AbstractControl y en este caso tenemos dentro otro form group al que queremos acceder-->
-                <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="loginForm.controls['person'].controls['name'].errors && loginSubmited">
-                    <ng-container [ngSwitch]="loginForm.controls['person'].controls['name'].value">
-                        <ng-container *ngSwitchCase="''">El nombre es requerido d</ng-container>
-                        <ng-container *ngSwitchDefault="">El nombre es invalido s</ng-container>
-                    </ng-container>
-                </small>
-            </div>
-            <div class="login-form-input">
-                <label for="">Apellido</label>
-                <input type="text" placeholder="Apellido" formControlName="lastname" >
-                <!-- en el ts debemos quitar el tipo FormGroup del formulario, ya que este cuenta conque .controls va a devolver
-                controles AbstractControl y en este caso tenemos dentro otro form group al que queremos acceder-->
-                <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="loginForm.controls['person'].controls['lastname'].errors && loginSubmited">
-                    <ng-container [ngSwitch]="loginForm.controls['person'].controls['lastname'].value">
-                        <ng-container *ngSwitchCase="''">El apellido es requerido d</ng-container>
-                        <ng-container *ngSwitchDefault="">El APELLIDO es invalido s</ng-container>
-                    </ng-container>
-                </small>
-            </div>
-        </div>
         <div class="login-form-input">
             <label for="">Email:</label>
             <input type="email" placeholder="Email" formControlName="email" >
@@ -48,24 +21,6 @@
                     <ng-container *ngSwitchDefault="">La contrasenya es invalida</ng-container>
                 </ng-container>
             </small> 
-        </div>
-
-        <div [formArrayName]="'interests'">
-            <!-- importante el type button porque sino por defecto es submit -->
-            <button type="button" (click)="addInterest()">Agregar</button>
-            <ng-container *ngFor="let interest of interests.controls; let i = index">
-                <div class="login-form-input">
-                    <label for="">Interes: <span (click)="deleteInterest(i)">X</span></label>
-                    <input type="text" placeholder="Interes" name="" [formControlName]="i">
-                    <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="interest.errors && loginSubmited">
-                        <ng-container [ngSwitch]="interest.value">
-                            <ng-container *ngSwitchCase="''">el interestes requerido</ng-container>
-                            <ng-container *ngSwitchDefault="">el interes es invalido</ng-container>
-                        </ng-container>
-                    </small> 
-                </div>
-            </ng-container>
-
         </div>
         <small class="small">Olvide contraseña</small>
         <div class="login-form-buttons">

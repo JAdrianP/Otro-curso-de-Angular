@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CONST_LOGIN_PAGE } from 'src/app/data/constants/pages/login/login.const';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form, [app-login-form]',
@@ -14,15 +13,8 @@ export class LoginFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      email: ['me cago en diuuuu', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
+      email: ['yaaassss', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
       password: ['', [Validators.required, Validators.maxLength(10)]],
-      person: this.formBuilder.group({
-        name: ['',[Validators.required, Validators.maxLength(35)]],
-        lastname: ['',[Validators.required, Validators.maxLength(35)]]
-      }),
-      interests: this.formBuilder.array([
-        this.formBuilder.control('',[Validators.required, Validators.minLength(5)])
-      ])
     });
   }
   ngOnInit(): void {
@@ -38,7 +30,7 @@ export class LoginFormComponent implements OnInit {
     console.log('authenticated', this.loginForm.value);
   }
 
-  get interests(): FormArray{
+  /*get interests(): FormArray{
     //esto tenemos que hacerlo porque podria devolver null, con esto te aseguras de que no
     return this.loginForm.get('interests') as FormArray;
 
@@ -50,6 +42,6 @@ export class LoginFormComponent implements OnInit {
 
   deleteInterest(index : number){
     this.interests.removeAt(index);
-  }
+  }*/
 
 }
