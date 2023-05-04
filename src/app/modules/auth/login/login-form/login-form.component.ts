@@ -26,16 +26,13 @@ export class LoginFormComponent implements OnInit {
     //ESTO SE PONE TRAS PILLAR LOS DATOS DEL BACKEND
     this.loginForm.get('email')?.setValue('nuevo@email.com');
   }
-  authenticate() {
-    console.log(this.loginForm.value);
-    console.log(this.loginForm.get('password')!.value);
-    
+  authenticate() {  
     this.loginSubmited = true;
-    if (!this.loginSubmited) {
+    if (!this.loginForm.valid) {
       return;
     }
 
-    console.log('authenticate');
+    console.log('authenticated', this.loginForm.value);
 
   }
 
