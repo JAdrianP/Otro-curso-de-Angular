@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CONST_LOGIN_PAGE } from 'src/app/data/constants/pages/login/login.const';
 
 @Component({
@@ -19,7 +19,10 @@ export class LoginFormComponent implements OnInit {
       person: this.formBuilder.group({
         name: ['',[Validators.required, Validators.maxLength(35)]],
         lastname: ['',[Validators.required, Validators.maxLength(35)]]
-      })
+      }),
+      interests: this.formBuilder.array([
+        this.formBuilder.control('',[Validators.required, Validators.minLength(5)])
+      ])
     });
   }
   ngOnInit(): void {
@@ -33,7 +36,20 @@ export class LoginFormComponent implements OnInit {
     }
 
     console.log('authenticated', this.loginForm.value);
+  }
 
+  get interests(): FormArray{
+    //esto tenemos que hacerlo porque podria devolver null, con esto te aseguras de que no
+    return this.loginForm.get('interests') as FormArray;
+
+  }
+
+  addInterest(){
+    this.interests.push(this.formBuilder.control('', [Validators.required, Validators.minLength(5)]));
+  }
+
+  deleteInterest(index : number){
+    this.interests.removeAt(index);
   }
 
 }
