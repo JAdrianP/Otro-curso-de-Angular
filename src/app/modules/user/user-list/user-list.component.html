@@ -34,7 +34,7 @@
     <div class="col-12">
         <app-title-h1 type="danger" text="LISTA DE USUARIOS"></app-title-h1>
     </div>
-    <ng-container *ngIf="3 + 3 === 5; else elseUsersLoader"> 
+    <ng-container *ngIf="users; else elseUsersLoader"> 
             <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-md-6 col-xl-3"></app-card-user>
     </ng-container>
     <!-- el ng template solo aparece en cas ode no cumplirse la condicion del container -->

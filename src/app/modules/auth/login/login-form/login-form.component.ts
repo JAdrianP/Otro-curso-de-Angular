@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/data/services/api/auth.service';
 
 @Component({
   selector: 'app-login-form, [app-login-form]',
@@ -11,7 +12,7 @@ export class LoginFormComponent implements OnInit {
   public loginForm;
   public loginSubmited = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private authService : AuthService) {
     this.loginForm = this.formBuilder.group({
       email: ['yaaassss', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
       password: ['', [Validators.required, Validators.maxLength(10)]],
@@ -28,6 +29,15 @@ export class LoginFormComponent implements OnInit {
     }
 
     console.log('authenticated', this.loginForm.value);
+
+   
+    this.authService.login({
+      email: this.loginForm.value.email ?? '',
+      password: this.loginForm.value.password ?? ''
+    }).subscribe( r =>{
+      console.log(r);
+      
+    })
   }
 
   /*get interests(): FormArray{
